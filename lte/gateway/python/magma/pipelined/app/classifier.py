@@ -70,8 +70,8 @@ class Classifier(MagmaController):
 
     def initialize_on_connect(self, datapath):
         self._datapath = datapath
-        if self._clean_restart:
-            self._delete_all_flows()
+        #if self._clean_restart:
+        self._delete_all_flows()
 
         self._install_default_tunnel_flows()
         self._install_internal_pkt_fwd_flow()
@@ -80,8 +80,8 @@ class Classifier(MagmaController):
         flows.delete_all_flows_from_table(self._datapath, self.tbl_num)
 
     def cleanup_on_disconnect(self, datapath):
-        if self._clean_restart:
-            self._delete_all_flows()
+        #if self._clean_restart:
+        self._delete_all_flows()
 
     def _install_default_tunnel_flows(self):
         match = MagmaMatch()
